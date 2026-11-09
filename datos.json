@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-09T20:24:52Z",
+  "actualizado": "2026-11-09T20:26:15Z",
   "fuente": "Yahoo Finance (yfinance); rentabilidades con precio ajustado por dividendos",
   "trm": {
     "valor": 3269.0,
@@ -342,12 +342,12 @@
       "nemotecnico": "CIBEST",
       "sector": "Financiero",
       "moneda": "COP",
-      "precio": 91380.0,
+      "precio": 91500.0,
       "fecha": "2026-11-09",
-      "variacion_dia_pct": 4.2,
-      "rent_1a_pct": 48.32,
-      "rent_anual_3a_pct": 57.57,
-      "volatilidad_anual_pct": 39.21,
+      "variacion_dia_pct": 4.33,
+      "rent_1a_pct": 48.52,
+      "rent_anual_3a_pct": 57.64,
+      "volatilidad_anual_pct": 39.22,
       "caida_maxima_1a_pct": -25.56,
       "dividendo_rend_pct": 5.09,
       "historico": [
@@ -497,7 +497,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 91380.0
+          "cierre": 91500.0
         }
       ]
     },
