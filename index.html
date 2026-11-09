@@ -734,11 +734,11 @@ function fitsProfile(a){
 
 function updateMarketKpis(){
   $('kpiCount').textContent = String(acciones.length);
-  const validReturn = acciones.map(a=>Number(a.rent_1a_pct)).filter(Number.isFinite);
-  const validVol = acciones.map(a=>Number(a.volatilidad_anual_pct)).filter(Number.isFinite);
+  const validReturn = acciones.filter(a=>a.rent_1a_pct!==null && a.rent_1a_pct!==undefined).map(a=>Number(a.rent_1a_pct)).filter(Number.isFinite);
+  const validVol = acciones.filter(a=>a.volatilidad_anual_pct!==null && a.volatilidad_anual_pct!==undefined).map(a=>Number(a.volatilidad_anual_pct)).filter(Number.isFinite);
   $('kpiAvgReturn').textContent = validReturn.length ? pct(validReturn.reduce((s,v)=>s+v,0)/validReturn.length) : '—';
   $('kpiAvgVol').textContent = validVol.length ? pct(validVol.reduce((s,v)=>s+v,0)/validVol.length) : '—';
-  const best = acciones.slice().filter(a=>Number.isFinite(Number(a.rent_1a_pct))).sort((a,b)=>Number(b.rent_1a_pct)-Number(a.rent_1a_pct))[0];
+  const best = acciones.slice().filter(a=>a.rent_1a_pct!==null && Number.isFinite(Number(a.rent_1a_pct))).sort((a,b)=>Number(b.rent_1a_pct)-Number(a.rent_1a_pct))[0];
   $('kpiTopStock').textContent = best ? `${best.nemotecnico}` : '—';
 }
 
@@ -801,7 +801,7 @@ function showStockChart(a){
   $('stockChartPanel').hidden = false;
   $('stockChartTitle').textContent = `Histórico mensual · ${a.nombre}`;
   if(stockChart){stockChart.destroy(); stockChart = null;}
-  const hist = (a.historico || []).filter(x=>x && Number.isFinite(Number(x.cierre)));
+  const hist = (a.historico || []).filter(x=>x && x.cierre!==null && Number.isFinite(Number(x.cierre)));
   if(!window.Chart || !hist.length){
     $('stockChart').hidden = true;
     $('stockChartFallback').style.display = 'block';
@@ -831,7 +831,7 @@ function showStockChart(a){
 
 function drawMarketChart(){
   if(marketChart){marketChart.destroy(); marketChart = null;}
-  const valid = acciones.filter(a=>Number.isFinite(Number(a.rent_1a_pct)) && Number.isFinite(Number(a.volatilidad_anual_pct)));
+  const valid = acciones.filter(a=>a.rent_1a_pct!==null && a.volatilidad_anual_pct!==null && Number.isFinite(Number(a.rent_1a_pct)) && Number.isFinite(Number(a.volatilidad_anual_pct)));
   if(!window.Chart){
     $('marketChart').hidden = true;
     $('marketChartFallback').style.display = 'block';
