@@ -181,6 +181,17 @@
     footer{background:var(--navy);color:#e6effe;text-align:center;padding:28px 16px;margin-top:34px}
     .print-only{display:none}
 
+
+    /* Entradas monetarias en pesos colombianos (COP), con puntos de miles. */
+    .money-input{display:flex;align-items:stretch;min-height:49px;width:100%;border:1px solid #cfd8e7;background:#fff;border-radius:13px;overflow:hidden;transition:border-color .15s,box-shadow .15s}
+    .money-input:focus-within{border-color:#6a9af2;box-shadow:0 0 0 3px rgba(77,141,255,.18)}
+    .money-input .money-prefix,.money-input .money-suffix{display:flex;align-items:center;justify-content:center;flex:0 0 auto;background:#f6f8fc;color:#18345c;font-weight:800;font-size:.88rem;padding:0 12px;white-space:nowrap}
+    .money-input .money-prefix{border-right:1px solid #e2e9f3}
+    .money-input .money-suffix{border-left:1px solid #e2e9f3;letter-spacing:.04em;color:#59708b}
+    .field .money-input input{flex:1 1 auto;min-width:0;width:100%;padding:11px 12px;border:0;border-radius:0;outline:none;box-shadow:none;font-variant-numeric:tabular-nums;font-weight:650;color:#162b50;background:#fff}
+    .money-input input:focus{outline:none}
+    .currency-help{margin:0 0 12px;font-size:.83rem;color:#667b96}
+
     @media (max-width:1020px){
       .hero,.profile-layout,.sim-layout,.viz-grid,.grid-2,.grid-3{grid-template-columns:1fr}
       .summary-strip,.market-kpis,.metric-grid,.scenario-grid,.form-grid,.subgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -494,6 +505,7 @@
           <button type="button" role="tab" aria-selected="false" data-mode="monthly">¿Cuánto debo ahorrar al mes?</button>
         </div>
 
+        <p class="currency-help">Todos los valores monetarios se expresan en pesos colombianos (COP), con puntos para separar los miles.</p>
         <div class="form-grid" id="simFields"></div>
         <div class="actions no-print">
           <button type="button" class="btn" id="calculateBtn">Calcular simulación</button>
@@ -983,13 +995,50 @@ function updateBasketInfo(){
     : 'No ha seleccionado acciones.';
 }
 
+/* Convierte el importe a pesos colombianos: 500000 → 500.000. */
+function formatCopInput(value){
+  const digitos = String(value ?? '').replace(/\D/g, '');
+  return digitos.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+}
+/* Conserva la posición del cursor cuando el usuario agrega separadores de miles. */
+function updateCopCaret(input){
+  const original = input.value;
+  const position = input.selectionStart ?? original.length;
+  const leftDigits = (original.slice(0, position).match(/\d/g) || []).length;
+  const formatted = formatCopInput(original);
+  input.value = formatted;
+  let newPosition = 0, passed = 0;
+  if(leftDigits > 0){
+    while(newPosition < formatted.length && passed < leftDigits){
+      if(/\d/.test(formatted[newPosition])) passed++;
+      newPosition++;
+    }
+  }
+  input.setSelectionRange(newPosition, newPosition);
+  const digits = formatted.replace(/\D/g, '');
+  currentInputs[input.id.replace('fld_', '')] = digits ? Number(digits) : NaN;
+  scheduleAutoCalc();
+}
+
 function renderFields(){
   $('simFields').innerHTML='';
   MODE_FIELDS[activeMode].forEach(k=>{
     const box = document.createElement('div');
     box.className = 'field';
-    box.innerHTML = `<label for="fld_${k}">${FIELD[k].label}</label><input id="fld_${k}" type="${FIELD[k].type}" min="${FIELD[k].min}" step="${FIELD[k].step}" value="${currentInputs[k]}">`;
-    box.querySelector('input').addEventListener('input',e=>{ currentInputs[k]=Number(e.target.value); scheduleAutoCalc(); });
+    const isMoney = k !== 'anos';
+    if(isMoney){
+      const value = Number.isFinite(currentInputs[k]) ? formatCopInput(String(Math.round(currentInputs[k]))) : '';
+      box.innerHTML = `<label for="fld_${k}">${FIELD[k].label}</label>
+        <div class="money-input">
+          <span class="money-prefix" aria-hidden="true">$</span>
+          <input id="fld_${k}" type="text" inputmode="numeric" autocomplete="off" spellcheck="false" value="${value}" aria-label="${FIELD[k].label} en pesos colombianos">
+          <span class="money-suffix" aria-hidden="true">COP</span>
+        </div>`;
+      box.querySelector('input').addEventListener('input',e=>updateCopCaret(e.target));
+    } else {
+      box.innerHTML = `<label for="fld_${k}">${FIELD[k].label}</label><input id="fld_${k}" type="number" min="0" max="100" step="0.5" value="${currentInputs[k]}">`;
+      box.querySelector('input').addEventListener('input',e=>{ currentInputs[k]=e.target.value.trim()==='' ? NaN : Number(e.target.value); scheduleAutoCalc(); });
+    }
     $('simFields').appendChild(box);
   });
   document.querySelectorAll('#modeTabs button').forEach(b=>b.setAttribute('aria-selected', String(b.dataset.mode===activeMode)));
@@ -1026,8 +1075,13 @@ function timeToGoal(capital, aporte, rate, meta){
 }
 function numericInput(k){
   const el = $('fld_'+k);
-  const n = Number(el?.value ?? currentInputs[k]);
-  if(!Number.isFinite(n) || n < 0) throw new Error('Revise el valor de '+FIELD[k].label+'.');
+  const raw = el?.value ?? '';
+  const isMoney = k !== 'anos';
+  const digits = isMoney ? raw.replace(/\D/g, '') : raw.trim();
+  const n = digits === '' ? NaN : Number(digits);
+  if(!Number.isFinite(n) || n < 0 || (isMoney && !Number.isSafeInteger(n))){
+    throw new Error('Revise el valor de '+FIELD[k].label+(isMoney?' en pesos colombianos.':'.'));
+  }
   return n;
 }
 function portfolio(){
