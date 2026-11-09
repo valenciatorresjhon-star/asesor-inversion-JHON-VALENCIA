@@ -1,0 +1,46 @@
+name: Actualizar datos y publicar
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 22 * * 1-5"   # 5:00 p. m. hora de Colombia, de lunes a viernes
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  actualizar-y-publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Instalar librerías
+        run: pip install --upgrade yfinance pandas
+      - name: Descargar datos reales
+        run: python actualizar_datos.py
+      - name: Guardar datos.json en el repositorio
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add datos.json
+          git diff --staged --quiet || git commit -m "Actualiza datos de acciones"
+          git push || echo "No se pudo guardar datos.json; se publica igual"
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
