@@ -1,4 +1,4 @@
-"""Actualiza precios de acciones colombianas para el proyecto UNIPAZ.
+"""Actualiza cotizaciones reales de acciones colombianas negociadas en la BVC.
 Ejecutar en Python 3.12 con yfinance y pandas.
 """
 import json
