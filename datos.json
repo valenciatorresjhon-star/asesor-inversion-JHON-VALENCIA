@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-09T20:26:15Z",
+  "actualizado": "2026-11-09T20:29:06Z",
   "fuente": "Yahoo Finance (yfinance); rentabilidades con precio ajustado por dividendos",
   "trm": {
     "valor": 3269.0,
@@ -12,14 +12,14 @@
       "nemotecnico": "ECOPETROL",
       "sector": "Petróleo y gas",
       "moneda": "COP",
-      "precio": 2545.0,
+      "precio": 2540.0,
       "fecha": "2026-11-09",
-      "variacion_dia_pct": -6.43,
-      "rent_1a_pct": 43.56,
-      "rent_anual_3a_pct": 16.54,
-      "volatilidad_anual_pct": 42.8,
+      "variacion_dia_pct": -6.62,
+      "rent_1a_pct": 43.28,
+      "rent_anual_3a_pct": 16.47,
+      "volatilidad_anual_pct": 42.83,
       "caida_maxima_1a_pct": -15.96,
-      "dividendo_rend_pct": 4.75,
+      "dividendo_rend_pct": 4.76,
       "historico": [
         {
           "mes": "2023-11",
@@ -167,7 +167,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 2545.0
+          "cierre": 2540.0
         }
       ]
     },
@@ -342,11 +342,11 @@
       "nemotecnico": "CIBEST",
       "sector": "Financiero",
       "moneda": "COP",
-      "precio": 91500.0,
+      "precio": 91480.0,
       "fecha": "2026-11-09",
-      "variacion_dia_pct": 4.33,
-      "rent_1a_pct": 48.52,
-      "rent_anual_3a_pct": 57.64,
+      "variacion_dia_pct": 4.31,
+      "rent_1a_pct": 48.48,
+      "rent_anual_3a_pct": 57.63,
       "volatilidad_anual_pct": 39.22,
       "caida_maxima_1a_pct": -25.56,
       "dividendo_rend_pct": 5.09,
@@ -497,7 +497,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 91500.0
+          "cierre": 91480.0
         }
       ]
     },
