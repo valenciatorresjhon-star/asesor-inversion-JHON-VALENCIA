@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-11-10T03:58:16Z",
+  "actualizado": "2026-11-11T01:43:49Z",
   "fuente": "Yahoo Finance (yfinance); rentabilidades con precio ajustado por dividendos",
   "trm": {
-    "valor": 3268.99,
-    "fecha": "2026-11-10"
+    "valor": 3296.84,
+    "fecha": "2026-11-11"
   },
   "acciones": [
     {
@@ -12,14 +12,14 @@
       "nemotecnico": "ECOPETROL",
       "sector": "Petróleo y gas",
       "moneda": "COP",
-      "precio": 2575.0,
-      "fecha": "2026-11-09",
-      "variacion_dia_pct": -5.33,
-      "rent_1a_pct": 45.25,
-      "rent_anual_3a_pct": 17.0,
-      "volatilidad_anual_pct": 42.62,
+      "precio": 2525.0,
+      "fecha": "2026-11-10",
+      "variacion_dia_pct": -1.94,
+      "rent_1a_pct": 42.43,
+      "rent_anual_3a_pct": 16.24,
+      "volatilidad_anual_pct": 42.59,
       "caida_maxima_1a_pct": -15.96,
-      "dividendo_rend_pct": 4.7,
+      "dividendo_rend_pct": 4.79,
       "historico": [
         {
           "mes": "2023-11",
@@ -167,7 +167,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 2575.0
+          "cierre": 2525.0
         }
       ]
     },
@@ -177,14 +177,14 @@
       "nemotecnico": "PFCIBEST",
       "sector": "Financiero",
       "moneda": "COP",
-      "precio": 77880.0,
-      "fecha": "2026-11-09",
-      "variacion_dia_pct": 3.21,
-      "rent_1a_pct": 39.56,
-      "rent_anual_3a_pct": 57.38,
-      "volatilidad_anual_pct": 34.94,
+      "precio": 75800.0,
+      "fecha": "2026-11-10",
+      "variacion_dia_pct": -2.67,
+      "rent_1a_pct": 35.83,
+      "rent_anual_3a_pct": 55.46,
+      "volatilidad_anual_pct": 34.99,
       "caida_maxima_1a_pct": -21.85,
-      "dividendo_rend_pct": 5.98,
+      "dividendo_rend_pct": 6.14,
       "historico": [
         {
           "mes": "2023-11",
@@ -332,7 +332,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 77880.0
+          "cierre": 75800.0
         }
       ]
     },
@@ -342,14 +342,14 @@
       "nemotecnico": "CIBEST",
       "sector": "Financiero",
       "moneda": "COP",
-      "precio": 92500.0,
-      "fecha": "2026-11-09",
-      "variacion_dia_pct": 5.47,
-      "rent_1a_pct": 50.14,
-      "rent_anual_3a_pct": 58.21,
-      "volatilidad_anual_pct": 39.36,
+      "precio": 89000.0,
+      "fecha": "2026-11-10",
+      "variacion_dia_pct": -3.78,
+      "rent_1a_pct": 44.46,
+      "rent_anual_3a_pct": 56.36,
+      "volatilidad_anual_pct": 39.49,
       "caida_maxima_1a_pct": -25.56,
-      "dividendo_rend_pct": 5.03,
+      "dividendo_rend_pct": 5.23,
       "historico": [
         {
           "mes": "2023-11",
@@ -497,7 +497,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 92500.0
+          "cierre": 89000.0
         }
       ]
     },
@@ -507,14 +507,14 @@
       "nemotecnico": "ISA",
       "sector": "Energía e infraestructura",
       "moneda": "COP",
-      "precio": 28500.0,
-      "fecha": "2026-11-09",
-      "variacion_dia_pct": -0.7,
-      "rent_1a_pct": 15.83,
-      "rent_anual_3a_pct": 30.61,
-      "volatilidad_anual_pct": 42.78,
+      "precio": 28140.0,
+      "fecha": "2026-11-10",
+      "variacion_dia_pct": -1.26,
+      "rent_1a_pct": 14.36,
+      "rent_anual_3a_pct": 31.32,
+      "volatilidad_anual_pct": 42.71,
       "caida_maxima_1a_pct": -23.05,
-      "dividendo_rend_pct": 2.54,
+      "dividendo_rend_pct": 2.57,
       "historico": [
         {
           "mes": "2023-11",
@@ -662,7 +662,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 28500.0
+          "cierre": 28140.0
         }
       ]
     },
@@ -672,14 +672,14 @@
       "nemotecnico": "EXITO",
       "sector": "Comercio",
       "moneda": "COP",
-      "precio": 4990.0,
-      "fecha": "2026-11-09",
-      "variacion_dia_pct": 0.0,
-      "rent_1a_pct": 28.07,
-      "rent_anual_3a_pct": 14.36,
-      "volatilidad_anual_pct": 48.34,
+      "precio": 4935.0,
+      "fecha": "2026-11-10",
+      "variacion_dia_pct": -1.1,
+      "rent_1a_pct": 26.66,
+      "rent_anual_3a_pct": 13.94,
+      "volatilidad_anual_pct": 48.26,
       "caida_maxima_1a_pct": -28.71,
-      "dividendo_rend_pct": 2.14,
+      "dividendo_rend_pct": 2.16,
       "historico": [
         {
           "mes": "2023-11",
@@ -827,7 +827,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 4990.0
+          "cierre": 4935.0
         }
       ]
     },
@@ -837,14 +837,14 @@
       "nemotecnico": "PFAVAL",
       "sector": "Financiero",
       "moneda": "COP",
-      "precio": 736.0,
-      "fecha": "2026-11-09",
-      "variacion_dia_pct": -8.0,
-      "rent_1a_pct": -5.61,
+      "precio": 731.0,
+      "fecha": "2026-11-10",
+      "variacion_dia_pct": -0.68,
+      "rent_1a_pct": -6.26,
       "rent_anual_3a_pct": 23.76,
-      "volatilidad_anual_pct": 45.55,
+      "volatilidad_anual_pct": 45.46,
       "caida_maxima_1a_pct": -27.16,
-      "dividendo_rend_pct": 4.13,
+      "dividendo_rend_pct": 4.16,
       "historico": [
         {
           "mes": "2023-11",
@@ -992,7 +992,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 736.0
+          "cierre": 731.0
         }
       ]
     },
@@ -1002,14 +1002,14 @@
       "nemotecnico": "CELSIA",
       "sector": "Energía",
       "moneda": "COP",
-      "precio": 4485.0,
-      "fecha": "2026-11-09",
-      "variacion_dia_pct": -5.78,
-      "rent_1a_pct": -5.51,
-      "rent_anual_3a_pct": 29.84,
-      "volatilidad_anual_pct": 35.56,
-      "caida_maxima_1a_pct": -19.5,
-      "dividendo_rend_pct": 5.69,
+      "precio": 4400.0,
+      "fecha": "2026-11-10",
+      "variacion_dia_pct": -1.9,
+      "rent_1a_pct": -7.3,
+      "rent_anual_3a_pct": 28.31,
+      "volatilidad_anual_pct": 35.54,
+      "caida_maxima_1a_pct": -20.94,
+      "dividendo_rend_pct": 5.8,
       "historico": [
         {
           "mes": "2023-11",
@@ -1157,7 +1157,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 4485.0
+          "cierre": 4400.0
         }
       ]
     },
@@ -1167,14 +1167,14 @@
       "nemotecnico": "GEB",
       "sector": "Energía",
       "moneda": "COP",
-      "precio": 3095.0,
-      "fecha": "2026-11-09",
-      "variacion_dia_pct": 3.17,
-      "rent_1a_pct": 3.33,
-      "rent_anual_3a_pct": 31.83,
-      "volatilidad_anual_pct": 27.19,
+      "precio": 3035.0,
+      "fecha": "2026-11-10",
+      "variacion_dia_pct": -1.94,
+      "rent_1a_pct": 1.33,
+      "rent_anual_3a_pct": 31.1,
+      "volatilidad_anual_pct": 27.21,
       "caida_maxima_1a_pct": -20.03,
-      "dividendo_rend_pct": 8.71,
+      "dividendo_rend_pct": 8.88,
       "historico": [
         {
           "mes": "2023-11",
@@ -1322,7 +1322,7 @@
         },
         {
           "mes": "2026-11",
-          "cierre": 3095.0
+          "cierre": 3035.0
         }
       ]
     }
